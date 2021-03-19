@@ -3,11 +3,14 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\produto;
 
 class ProdutosController extends Controller
 {
     public function index()
     {
+    	$produtos = produto::all();
+    	return $produtos;
     	return view('index');
     }
 
