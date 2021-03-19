@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ProdutosController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -15,18 +16,8 @@ use App\Http\Controllers\HomeController;
 
 Route::get('/', HomeController::class);
 
-Route::get('produtos/inserir', function() {
-	return "Pagina de inserir produto";
-});
+Route::get('produtos/inserir', [ProdutosController::class, 'create']);
 
-Route::get('produtos/{nome}/{valor?}', function($nome, $valor=null) {
-	if($valor){
-		return "usuario e seu id é [$nome] e valor [$valor]";
-	}else{
-		return "usuario e seu id é [$nome]";
-	}
-});
+Route::get('produtos/{nome}/{valor?}', [ProdutosController::class, 'show']);
 
-Route::get('users', function() {
-	return 'usuaario';
-});
+Route::get('produtos', [ProdutosController::class, 'index']);
