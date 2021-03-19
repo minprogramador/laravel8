@@ -8,20 +8,21 @@ class ProdutosController extends Controller
 {
     public function index()
     {
-		return 'pagina produtos';
+    	return view('index');
     }
 
     public function create()
     {
-		return "Pagina de inserir produto";
+    	return view('produtos.create');
     }
 
     public function show($nome, $valor=null)
     {
-		if($valor){
-			return "usuario e seu id é [$nome] e valor [$valor]";
-		}else{
-			return "usuario e seu id é [$nome]";
-		}
+    	return view('produtos.show', ['nome'=>$nome, 'valor'=>$valor]);
+		// if($valor){
+		// 	return "usuario e seu id é [$nome] e valor [$valor]";
+		// }else{
+		// 	return "usuario e seu id é [$nome]";
+		// }
     }
 }
